@@ -13,8 +13,7 @@ import {
 import { cats, dogs } from "./breeds";
 
 function FeatureRow({ name, value }) {
-  const percent = Math.max(0, Math.min(100, (value / 5) * 100));
-  const stars = "⭐️".repeat(Math.max(0, Math.min(5, value)));
+
 
   return (
     <View style={styles.featureRow}>
@@ -23,12 +22,6 @@ function FeatureRow({ name, value }) {
       </Text>
 
       <View style={styles.featureRight}>
-        <View style={styles.barOuter}>
-          <View style={[styles.barInner, { width: `${percent}%` }]} />
-        </View>
-
-        <Text style={styles.stars}>{stars}</Text>
-
         <Text style={styles.featureValue}>{value}</Text>
       </View>
     </View>
@@ -195,25 +188,6 @@ const styles = StyleSheet.create({
     textAlign: "right",
     fontSize: 16,
     fontWeight: "700",
-  },
-
-  //challenge 6
-  barOuter: {
-    width: 90,
-    height: 10,
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    overflow: "hidden",
-  },
-  barInner: {
-    height: "100%",
-    backgroundColor: "#111",
-  },
-
-  //challenge 7
-  stars: {
-    fontSize: 14,
   },
 
   //search bar
